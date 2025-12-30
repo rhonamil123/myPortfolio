@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhonamil Matuguina | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES (THEMING) --- */
+        :root {
+            --primary-color: #9b59b6; /* Soft Purple */
+            --secondary-color: #8e44ad; /* Darker Purple */
+            --accent-color: #e1bee7; /* Light Lavender */
+            --bg-color: #fcf9fd; /* Very light pink/white */
+            --card-bg: #ffffff;
+            --text-color: #4a4a4a;
+            --heading-color: #2c3e50;
+            --shadow: 0 4px 15px rgba(155, 89, 182, 0.15);
+            --transition: all 0.3s ease;
+        }
+
+        /* Dark Mode Variables */
+        body.dark-mode {
+            --bg-color: #1a0b2e; /* Deep dark purple */
+            --card-bg: #2d1b4e;
+            --text-color: #e0d4e8;
+            --heading-color: #f3e5f5;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* --- GLOBAL STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { max-width: 100%; display: block; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: background 0.3s;
+        }
+
+        body.dark-mode nav {
+            background: rgba(26, 11, 46, 0.9);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--heading-color);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Toggle Switch */
+        .theme-switch {
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: var(--heading-color);
+        }
+
+        /* --- HERO SECTION --- */
+        #home {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at top right, var(--accent-color), transparent 40%);
+        }
+
+        .profile-img-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid var(--primary-color);
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-title span {
+            color: var(--primary-color);
+        }
+
+        .hero-tagline {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 25px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(155, 89, 182, 0.4);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* --- SECTIONS COMMON --- */
+        section {
+            padding: 80px 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--heading-color);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* --- ABOUT --- */
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .info-list {
+            margin-top: 1.5rem;
+        }
+
+        .info-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-list i {
+            color: var(--primary-color);
+        }
+
+        /* --- SKILLS --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .skill-category h3 {
+            margin-bottom: 1.5rem;
+            color: var(--heading-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .tag {
+            background: var(--accent-color);
+            color: #4a2c5a;
+            padding: 5px 15px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        body.dark-mode .tag {
+            color: #1a0b2e;
+        }
+
+        /* --- PROJECTS --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #ddd; /* Placeholder color */
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            color: var(--heading-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .tech-stack {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* --- CONTACT --- */
+        .contact-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background: var(--bg-color);
+            color: var(--text-color);
+            font-family: inherit;
+        }
+
+        form textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            color: var(--heading-color);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-size: 0.9rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Simple hiding for now, normally would use JS burger menu */
+            }
+            
+            /* Simple mobile nav alternative for single page without complex JS */
+            nav {
+                justify-content: center;
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                display: flex;
+                font-size: 0.8rem;
+                gap: 1rem;
+            }
+
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Rhona<span style="color:var(--text-color)">.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="theme-switch" id="theme-toggle">
+            <i class="fas fa-moon"></i>
+        </div>
+    </nav>
+
+    <section id="home">
+        <div class="profile-img-container">
+            <img src="https://via.placeholder.com/150" alt="Rhonamil Matuguina">
+        </div>
+        <h1 class="hero-title">Hi, I'm <span>Rhonamil</span></h1>
+        <p class="hero-tagline">BSIT Student | Aspiring Web Developer</p>
+        <p style="margin-bottom: 2rem; font-style: italic;">"Dream big, stay focused, and make it happen."</p>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-container">
+            <div class="about-img">
+                 <img src="https://via.placeholder.com/400x300" style="border-radius: 15px; box-shadow: var(--shadow);" alt="About Me">
+            </div>
+            
+            <div class="about-text">
+                <h3>Who am I?</h3>
+                <p>I am a 20-year-old IT student from Ormoc City with a passion for technology and creativity. Born on July 18, 2005, I value family deeply and strive to build a successful career in the tech industry. When I'm not coding, you'll find me listening to music, exploring new foods, or playing volleyball.</p>
+                
+                <ul class="info-list">
+                    <li><i class="fas fa-graduation-cap"></i> <strong>Current:</strong> 2nd Year BSIT at EVSU</li>
+                    <li><i class="fas fa-school"></i> <strong>SHS:</strong> ACLC College of Ormoc</li>
+                    <li><i class="fas fa-history"></i> <strong>High School:</strong> New Ormoc City NHS</li>
+                    <li><i class="fas fa-bullseye"></i> <strong>Goal:</strong> Secure my dream job in IT.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <i class="fas fa-code fa-2x" style="color:var(--primary-color); margin-bottom:1rem;"></i>
+                <h3>Programming</h3>
+                <div class="skill-tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">C</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <i class="fas fa-tools fa-2x" style="color:var(--primary-color); margin-bottom:1rem;"></i>
+                <h3>Tools</h3>
+                <div class="skill-tags">
+                    <span class="tag">VS Code</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">MS Office</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <i class="fas fa-users fa-2x" style="color:var(--primary-color); margin-bottom:1rem;"></i>
+                <h3>Soft Skills</h3>
+                <div class="skill-tags">
+                    <span class="tag">Teamwork</span>
+                    <span class="tag">Time Management</span>
+                    <span class="tag">Willingness to Learn</span>
+                    <span class="tag">Cooperation</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-title">Academic Projects</h2>
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200" alt="Word Editor UI" class="project-img">
+                <div class="project-info">
+                    <h3>Word Editor UI</h3>
+                    <p>A user interface design for a word processing application. Focused on creating an intuitive layout for text editing tools.</p>
+                    <p><strong>Role:</strong> UI Designer</p>
+                    <div class="tech-stack">Visual Studio • Application Design</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="https://via.placeholder.com/400x200" alt="Portfolio Website" class="project-img">
+                <div class="project-info">
+                    <h3>Previous Portfolio</h3>
+                    <p>A personal portfolio website created using a website builder to showcase early design concepts.</p>
+                    <p><strong>Role:</strong> Designer & Creator</p>
+                    <div class="tech-stack">Wixsite.com • Web Design</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="contact-container">
+            <form action="mailto:rhonamilm@gmail.com" method="post" enctype="text/plain">
+                <label>Name</label>
+                <input type="text" name="name" required placeholder="Your Name">
+                
+                <label>Email</label>
+                <input type="email" name="email" required placeholder="Your Email">
+                
+                <label>Message</label>
+                <textarea name="message" required placeholder="How can I help you?"></textarea>
+                
+                <button type="submit" class="btn" style="width:100%">Send Message</button>
+            </form>
+
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:rhonamilm@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rhonamil Matuguina. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // --- DARK MODE LOGIC (REQUIRED BY RUBRIC) ---
+        
+        const toggleButton = document.getElementById('theme-toggle');
+        const body = document.body;
+        const icon = toggleButton.querySelector('i');
+
+        // 1. Check LocalStorage on page load
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+
+        // 2. Event Listener for Toggle
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            
+            // Switch Icon
+            if (body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                // Save to LocalStorage
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                // Save to LocalStorage
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    </script>
+</body>
+</html>
