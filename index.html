@@ -12,21 +12,30 @@
 
     <nav>
         <div class="logo">Rhona<span style="color:var(--text-color)">.</span></div>
+        
         <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#projects" class="nav-link">Projects</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
-        <div class="theme-switch" id="theme-toggle">
-            <i class="fas fa-moon"></i>
+        
+        <div class="nav-right">
+            <div class="theme-switch" id="theme-toggle">
+                <i class="fas fa-moon"></i>
+            </div>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <section id="home">
         <div class="profile-img-container">
-            <img src="https://via.placeholder.com/150" alt="Rhonamil Matuguina">
+            <img src="img/mypic.png" alt="Rhonamil Matuguina">
         </div>
         <h1 class="hero-title">Hi, I'm <span>Rhonamil</span></h1>
         <p class="hero-tagline">BSIT Student | Aspiring Web Developer</p>
@@ -38,7 +47,7 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-container">
             <div class="about-img">
-                 <img src="https://via.placeholder.com/400x300" style="border-radius: 15px; box-shadow: var(--shadow);" alt="About Me">
+                 <img src="img/about.jpg" style="border-radius: 15px; box-shadow: var(--shadow);" alt="About Me">
             </div>
             
             <div class="about-text">
@@ -98,22 +107,32 @@
         <div class="projects-grid">
             
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x200" alt="Word Editor UI" class="project-img">
+                <img src="img/project1.png" alt="Word Editor UI" class="project-img">
                 <div class="project-info">
                     <h3>Word Editor UI</h3>
-                    <p>A user interface design for a word processing application. Focused on creating an intuitive layout for text editing tools.</p>
+                    <p>A user interface design for a word processing application and messagebox integration. Focused on creating an intuitive layout for text editing tools.</p>
                     <p><strong>Role:</strong> UI Designer</p>
                     <div class="tech-stack">Visual Studio • Application Design</div>
                 </div>
             </div>
 
             <div class="project-card">
-                <img src="https://via.placeholder.com/400x200" alt="Portfolio Website" class="project-img">
+                <img src="img/project2.png" alt="Portfolio Website" class="project-img">
                 <div class="project-info">
                     <h3>Previous Portfolio</h3>
                     <p>A personal portfolio website created using a website builder to showcase early design concepts.</p>
                     <p><strong>Role:</strong> Designer & Creator</p>
                     <div class="tech-stack">Wixsite.com • Web Design</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <img src="img/project3.jpg" alt="Purposive Communication Vlog" class="project-img">
+                <div class="project-info">
+                    <h3>Purposive Communication Vlog</h3>
+                    <p>A vlog exploring the topic: Redefining Gender and Sexuality, and What It Truly Means to Live Authentically.</p>
+                    <p><strong>Role:</strong> Actor</p>
+                    <div class="tech-stack">CapCut</div>
                 </div>
             </div>
 
@@ -137,9 +156,8 @@
             </form>
 
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/rhonamil.matuguina.2024"><i class="fab fa-facebook"></i></a>
+                <a href="https://github.com/rhonamil123"><i class="fab fa-github"></i></a>
                 <a href="mailto:rhonamilm@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
@@ -148,5 +166,7 @@
     <footer>
         <p>&copy; 2025 Rhonamil Matuguina. All Rights Reserved.</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
