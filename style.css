@@ -217,10 +217,10 @@ section {
 .section-title::after {
     content: '';
     display: block;
-    width: 120px; /* Longer width */
-    height: 3px;  /* Thinner height */
+    width: 120px; 
+    height: 3px;  
     
-    /* The gradient magic: transparent -> purple -> transparent */
+    
     background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
     
     margin: 10px auto 0;
@@ -235,26 +235,24 @@ section {
     align-items: center;
 }
 
-/* --- ABOUT IMAGE FLIP EFFECT --- */
 
-/* Wrapper to hold the card and the "Click Me" text together */
 .about-img-wrapper {
     position: relative;
     width: 100%;
-    max-width: 400px; /* Limits size on large screens */
-    margin: 0 auto;   /* Centers it */
+    max-width: 400px; 
+    margin: 0 auto;   
 }
 
-/* The container for the 3D effect */
+
 .flip-card {
     background-color: transparent;
     width: 100%;
-    height: 300px; /* Adjust height to match your image aspect ratio */
-    perspective: 1000px; /* Gives the 3D depth */
+    height: 300px; 
+    perspective: 1000px; 
     cursor: pointer;
 }
 
-/* The inner container that actually spins */
+
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -266,30 +264,30 @@ section {
     border-radius: 15px;
 }
 
-/* The JavaScript toggles this class to rotate it */
+
 .flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
 
-/* Common styles for Front and Back */
+
 .flip-card-front, .flip-card-back {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden; /* Safari */
+    -webkit-backface-visibility: hidden; 
     backface-visibility: hidden;
     border-radius: 15px;
     overflow: hidden;
 }
 
-/* Front Image Style */
+
 .flip-card-front img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-/* Back Image Style */
+
 .flip-card-back {
     transform: rotateY(180deg);
 }
@@ -300,11 +298,11 @@ section {
     object-fit: cover;
 }
 
-/* --- CLICK INDICATOR DESIGN --- */
+
 .click-indicator {
     position: absolute;
-    bottom: -40px; /* Position below the image */
-    right: 0;      /* Align to right */
+    bottom: -40px; 
+    right: 0;      
     background: var(--primary-color);
     color: white;
     padding: 8px 15px;
@@ -313,10 +311,10 @@ section {
     font-weight: 600;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     animation: bounce 2s infinite;
-    pointer-events: none; /* Lets clicks pass through to the image */
+    pointer-events: none; 
 }
 
-/* Little arrow on the speech bubble */
+
 .click-indicator::before {
     content: '';
     position: absolute;
@@ -327,24 +325,24 @@ section {
     border-color: transparent transparent var(--primary-color) transparent;
 }
 
-/* Bouncing Animation */
+
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
     40% {transform: translateY(-10px);}
     60% {transform: translateY(-5px);}
 }
 
-/* --- RESPONSIVE FIXES --- */
+
 @media (max-width: 768px) {
     .about-img-wrapper {
-        margin-bottom: 3rem; /* Add space for the indicator on mobile */
+        margin-bottom: 3rem; 
     }
     
     .click-indicator {
         bottom: -35px;
-        right: 50%; /* Center it on mobile */
+        right: 50%; 
         transform: translateX(50%);
-        animation: mobileBounce 2s infinite; /* Different bounce for centered item */
+        animation: mobileBounce 2s infinite; 
     }
     
     @keyframes mobileBounce {
@@ -426,12 +424,12 @@ body.dark-mode .tag {
 }
 
 
-/* --- NEW PROJECTS SECTION DESIGN --- */
+
 
 .projects-container {
     display: flex;
     flex-direction: column;
-    gap: 4rem; /* Space between projects */
+    gap: 4rem; 
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -453,9 +451,9 @@ body.dark-mode .tag {
     box-shadow: 0 10px 25px rgba(155, 89, 182, 0.2);
 }
 
-/* Image Side */
+
 .project-image {
-    flex: 1.2; /* Takes up slightly more space than text */
+    flex: 1.2; 
     height: 350px;
     overflow: hidden;
 }
@@ -468,10 +466,10 @@ body.dark-mode .tag {
 }
 
 .project-item:hover .project-image img {
-    transform: scale(1.05); /* Subtle zoom effect */
+    transform: scale(1.05); 
 }
 
-/* Content Side */
+
 .project-content {
     flex: 1;
     padding: 2.5rem;
@@ -479,7 +477,7 @@ body.dark-mode .tag {
     z-index: 1;
 }
 
-/* Big Number Decoration */
+
 .project-number {
     position: absolute;
     top: -20px;
@@ -487,7 +485,7 @@ body.dark-mode .tag {
     font-size: 6rem;
     font-weight: 700;
     color: var(--primary-color);
-    opacity: 0.1; /* Very subtle background number */
+    opacity: 0.1; 
     line-height: 1;
     pointer-events: none;
 }
@@ -505,7 +503,7 @@ body.dark-mode .tag {
     line-height: 1.7;
 }
 
-/* Metadata (Role/Stack) styling */
+
 .project-meta {
     display: flex;
     flex-direction: column;
@@ -526,7 +524,7 @@ body.dark-mode .tag {
     color: var(--primary-color);
 }
 
-/* --- RESPONSIVE ADJUSTMENTS --- */
+
 
 @media (max-width: 900px) {
     .project-item {
@@ -536,7 +534,7 @@ body.dark-mode .tag {
     }
 
     .project-item.reverse {
-        flex-direction: column; /* Disable alternating layout on tablets */
+        flex-direction: column; 
     }
 
     .project-image {
@@ -702,42 +700,42 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    /* --- Add this INSIDE @media (max-width: 768px) --- */
+    
     
     .projects-container {
-        /* Ensure the container fits the smaller screen */
+        
         gap: 2rem; 
         max-width: 100%;
     }
 
     .project-item {
-        /* Stack the image and text vertically instead of side-by-side */
+        
         flex-direction: column;
-        max-width: 100%; /* Use full width available */
-        margin: 0; /* Reset margins */
+        max-width: 100%; 
+        margin: 0; 
     }
 
-    /* Force the image to take full width and fixed height */
+    
     .project-image {
         width: 100%;
-        height: 220px; /* Smaller height for tablet/mobile */
-        flex: none; /* Stop flex from trying to resize it */
+        height: 220px; 
+        flex: none; 
     }
 
-    /* Adjust padding for the text area */
+    
     .project-content {
         width: 100%;
         padding: 1.5rem;
     }
 
-    /* Resize the decorative background number */
+    
     .project-number {
         font-size: 3.5rem;
         top: 10px;
         right: 15px;
     }
 
-    /* If you used the 'reverse' class, force it to stack normally too */
+    
     .project-item.reverse {
         flex-direction: column;
     }
@@ -760,22 +758,22 @@ footer {
         font-size: 1.5rem;
     }
 
-    /* --- Add this INSIDE @media (max-width: 480px) --- */
+    
 
     .project-content h3 {
-        font-size: 1.3rem; /* Smaller title */
+        font-size: 1.3rem; 
     }
 
     .project-content p {
-        font-size: 0.85rem; /* Smaller text */
+        font-size: 0.85rem; 
     }
 
     .project-image {
-        height: 180px; /* Even smaller image height for phones */
+        height: 180px; 
     }
 
     .project-number {
-        font-size: 3rem; /* Smaller number */
+        font-size: 3rem; 
     }
     
     .section-title {
@@ -800,39 +798,35 @@ footer {
     
 }
 
-/* --- SKILLS 3D TILT ANIMATION --- */
+
 
 .skill-category {
-    /* Smooth transition for the tilt */
+    
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important; 
     
-    /* Ensure the starting position is ready for 3D */
+    
     transform: perspective(1000px) rotateX(0) rotateY(0) scale(1);
     
-    /* Optional: Make the border slightly transparent initially */
+    
     border: 1px solid transparent; 
 }
 
 .skill-category:hover {
-    /* THE TILT: 
-       perspective: creates the 3D space
-       rotateX/Y: tilts the card slightly
-       scale: makes it pop out closer to the user 
-    */
+    
     transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.05) !important;
     
-    /* Enhance shadow to look like it's lifting higher */
+    
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
     
-    /* Highlight the border with your primary color */
+    
     border-color: var(--primary-color);
     
-    /* Change background slightly for emphasis */
+    
     background: white; 
-    z-index: 10; /* Ensures it sits on top of other elements */
+    z-index: 10; 
 }
 
-/* Dark mode adjustment for the background */
+
 body.dark-mode .skill-category:hover {
     background: var(--card-bg);
     box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
